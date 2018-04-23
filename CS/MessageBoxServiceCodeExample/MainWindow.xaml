@@ -1,0 +1,34 @@
+﻿<Window x:Class="MessageBoxServiceCodeExample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:MessageBoxServiceCodeExample"
+        xmlns:View="clr-namespace:MessageBoxServiceCodeExample.View"
+        xmlns:mvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.DataContext>
+        <local:MainViewModel/>
+    </Window.DataContext>
+    <mvvm:Interaction.Behaviors>
+        <dx:DXMessageBoxService/>
+        <dx:DialogService DialogWindowStartupLocation="CenterOwner">
+            <dx:DialogService.ViewTemplate>
+                <DataTemplate>
+                    <View:DialogView/>
+                </DataTemplate>
+            </dx:DialogService.ViewTemplate>
+            <dx:DialogService.DialogStyle>
+                <Style TargetType="dx:DXDialogWindow">
+                    <Setter Property="SizeToContent" Value="WidthAndHeight"/>
+                </Style>
+            </dx:DialogService.DialogStyle>
+        </dx:DialogService>
+    </mvvm:Interaction.Behaviors>
+    <Grid>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Margin="8" Content="Show Message Box" Command="{Binding ShowMessageBoxCommand}"/>
+            <Button Margin="8" Content="Show Dialog" Command="{Binding ShowDialogCommand}"/>
+        </StackPanel>
+    </Grid>
+</Window>
