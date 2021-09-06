@@ -1,11 +1,11 @@
-﻿Imports Microsoft.VisualBasic
-Imports DevExpress.Mvvm
+﻿Imports DevExpress.Mvvm
 Imports MessageBoxServiceCodeExample.ViewModel
 Imports System.Windows.Input
 
 Namespace MessageBoxServiceCodeExample
 	Public Class MainViewModel
 		Inherits ViewModelBase
+
 		Private privateShowMessageBoxCommand As ICommand
 		Public Property ShowMessageBoxCommand() As ICommand
 			Get

@@ -1,5 +1,4 @@
-﻿Imports Microsoft.VisualBasic
-Imports DevExpress.Mvvm
+﻿Imports DevExpress.Mvvm
 Imports System.Collections.Generic
 Imports System.ComponentModel
 Imports System.Windows
@@ -7,22 +6,25 @@ Imports System.Windows
 Namespace MessageBoxServiceCodeExample.ViewModel
 	Public Class DialogViewModel
 		Inherits ViewModelBase
-		Private allowCloseDialog_Renamed As Boolean = False
+
+'INSTANT VB NOTE: The field allowCloseDialog was renamed since Visual Basic does not allow fields to have the same name as other class members:
+		Private allowCloseDialog_Conflict As Boolean = False
 		Public Property AllowCloseDialog() As Boolean
 			Get
-				Return allowCloseDialog_Renamed
+				Return allowCloseDialog_Conflict
 			End Get
 			Set(ByVal value As Boolean)
-				SetProperty(allowCloseDialog_Renamed, value, Function() AllowCloseDialog)
+				SetProperty(allowCloseDialog_Conflict, value, Function() AllowCloseDialog)
 			End Set
 		End Property
-		Private userName_Renamed As String
+'INSTANT VB NOTE: The field userName was renamed since Visual Basic does not allow fields to have the same name as other class members:
+		Private userName_Conflict As String
 		Public Property UserName() As String
 			Get
-				Return userName_Renamed
+				Return userName_Conflict
 			End Get
 			Set(ByVal value As String)
-				SetProperty(userName_Renamed, value, Function() UserName)
+				SetProperty(userName_Conflict, value, Function() UserName)
 			End Set
 		End Property
 
@@ -55,13 +57,23 @@ Namespace MessageBoxServiceCodeExample.ViewModel
 		End Property
 		Public Sub New()
 			DialogCommands = New List(Of UICommand)()
-			RegisterUICommand = New UICommand() With {.Caption = "Register", .Command = New DelegateCommand(Of CancelEventArgs)(AddressOf OnRegisterCommandExecute, AddressOf OnRegisterCommandCanExecute), .IsDefault = True, .Id = MessageBoxResult.OK}
-			CancelUICommand = New UICommand() With {.Caption = "Cancel", .Command = New DelegateCommand(Of CancelEventArgs)(AddressOf OnCancelCommandExecute, AddressOf OnCancelCommandCanExecute), .IsCancel = True, .Id = MessageBoxResult.Cancel}
+			RegisterUICommand = New UICommand() With {
+				.Caption = "Register",
+				.Command = New DelegateCommand(Of CancelEventArgs)(AddressOf OnRegisterCommandExecute, AddressOf OnRegisterCommandCanExecute),
+				.IsDefault = True,
+				.Id = MessageBoxResult.OK
+			}
+			CancelUICommand = New UICommand() With {
+				.Caption = "Cancel",
+				.Command = New DelegateCommand(Of CancelEventArgs)(AddressOf OnCancelCommandExecute, AddressOf OnCancelCommandCanExecute),
+				.IsCancel = True,
+				.Id = MessageBoxResult.Cancel
+			}
 			DialogCommands.Add(RegisterUICommand)
 			DialogCommands.Add(CancelUICommand)
 		End Sub
 		Private Sub OnRegisterCommandExecute(ByVal parameter As CancelEventArgs)
-			If (Not AllowCloseDialog) Then
+			If Not AllowCloseDialog Then
 				parameter.Cancel = True
 			End If
 		End Sub
@@ -69,7 +81,7 @@ Namespace MessageBoxServiceCodeExample.ViewModel
 			Return Not String.IsNullOrEmpty(UserName)
 		End Function
 		Private Sub OnCancelCommandExecute(ByVal parameter As CancelEventArgs)
-			If (Not AllowCloseDialog) Then
+			If Not AllowCloseDialog Then
 				parameter.Cancel = True
 			End If
 		End Sub
