@@ -1,5 +1,5 @@
 ﻿Imports Microsoft.VisualBasic
-Imports DevExpress.Xpf.Mvvm
+Imports DevExpress.Mvvm
 Imports System.Collections.Generic
 Imports System.ComponentModel
 Imports System.Windows

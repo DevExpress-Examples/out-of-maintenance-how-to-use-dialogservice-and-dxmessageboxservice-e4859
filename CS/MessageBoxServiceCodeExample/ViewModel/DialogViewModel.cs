@@ -1,4 +1,4 @@
-﻿using DevExpress.Xpf.Mvvm;
+﻿using DevExpress.Mvvm;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows;

@@ -1,4 +1,4 @@
-﻿using DevExpress.Xpf.Mvvm;
+﻿using DevExpress.Mvvm;
 using MessageBoxServiceCodeExample.ViewModel;
 using System.Windows.Input;
 

@@ -1,5 +1,5 @@
 ﻿Imports Microsoft.VisualBasic
-Imports DevExpress.Xpf.Mvvm
+Imports DevExpress.Mvvm
 Imports MessageBoxServiceCodeExample.ViewModel
 Imports System.Windows.Input
 
