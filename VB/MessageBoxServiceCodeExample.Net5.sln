@@ -1,4 +1,4 @@
-﻿Microsoft Visual Studio Solution File, Format Version 12.00
+Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 16
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MessageBoxServiceCodeExample", "MessageBoxServiceCodeExample\MessageBoxServiceCodeExample.Net5.vbproj", "{9015D70D-96F4-48FE-81BE-7FA66455DE55}"
 EndProject
